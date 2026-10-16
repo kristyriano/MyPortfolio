@@ -1,0 +1,574 @@
+/* ==========================================================
+   Global styles for the whole portfolio.
+   Sections: 1. Tokens  2. Base  3. Layout  4. Navbar
+   5. Buttons  6. Home  7. Pages  8. Footer  9. Small screens
+   ========================================================== */
+
+/* ---------- 1. Design tokens (colors, fonts, sizes) ---------- */
+:root {
+  --color-navy: #050063; /* same blue as the logo */
+  --color-charcoal: #25262b;
+  --color-charcoal-deep: #1b1c20;
+  --color-white: #ffffff;
+  --color-orange: #f26a21;
+  --color-orange-light: #ff8a47;
+  --color-orange-dark: #d4500f; /* readable orange for text on white */
+  --color-gray-text: #555555;
+  --color-gray-line: #dddddd;
+  --color-gray-surface: #f4f4f4;
+
+  --font-main: Arial, Helvetica, sans-serif;
+
+  --content-width: 68rem;
+  --radius: 0.4rem;
+}
+
+/* ---------- 2. Base ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--color-white);
+  color: var(--color-navy);
+  font-family: var(--font-main);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+}
+
+h1,
+h2 {
+  line-height: 1.15;
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: var(--color-navy);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* Visible outline for people who navigate with the keyboard */
+:focus-visible {
+  outline: 2px solid var(--color-navy);
+  outline-offset: 3px;
+}
+
+/* ---------- 3. Layout ---------- */
+.site {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.site-main {
+  flex: 1;
+}
+
+/* Inner pages share the same centered column */
+.page {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 3rem 1.5rem 4rem;
+}
+
+/* ---------- 4. Navbar ---------- */
+.navbar {
+  background: var(--color-white);
+  border-bottom: 1px solid var(--color-gray-line);
+}
+
+.navbar-inner {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 0.75rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+  flex-wrap: wrap;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+}
+
+.logo {
+  height: 3.25rem;
+  width: auto;
+}
+
+.navbar-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.5rem;
+}
+
+.navbar-links a {
+  display: inline-block;
+  padding: 0.4rem 0;
+  color: var(--color-gray-text);
+  text-decoration: none;
+}
+
+.navbar-links a:hover {
+  color: var(--color-navy);
+}
+
+/* "active" is added by NavLink to the current page: shown in bold, with no line */
+.navbar-links a.active {
+  color: var(--color-navy);
+  font-weight: 700;
+}
+
+/* ---------- 5. Buttons ---------- */
+.button {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  border: 2px solid var(--color-orange);
+  border-radius: var(--radius);
+  font: inherit;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.button-primary {
+  background: var(--color-orange);
+  color: var(--color-navy);
+}
+
+.button-primary:hover {
+  background: var(--color-orange-light);
+  border-color: var(--color-orange-light);
+}
+
+/* Outlined button for dark backgrounds */
+.button-light {
+  background: transparent;
+  border-color: var(--color-white);
+  color: var(--color-white);
+}
+
+.button-light:hover {
+  background: var(--color-white);
+  color: var(--color-navy);
+}
+
+/* Outlined button for light backgrounds */
+.button-dark {
+  background: transparent;
+  border-color: var(--color-navy);
+  color: var(--color-navy);
+}
+
+.button-dark:hover {
+  background: var(--color-navy);
+  color: var(--color-white);
+}
+
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* ---------- 6. Home ---------- */
+/* Hero: background photo with a dark blue layer on the left so the text stays readable */
+.hero {
+  background:
+    linear-gradient(90deg, rgba(4, 8, 40, 0.92) 0%, rgba(4, 8, 40, 0.7) 42%, rgba(4, 8, 40, 0) 75%),
+    url('./assets/hero-background.jpg') right center / cover no-repeat;
+  color: var(--color-white);
+}
+
+.hero-inner {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 6rem 1.5rem;
+}
+
+.notice {
+  margin-bottom: 2.5rem;
+  padding: 0.9rem 1.2rem;
+  background: var(--color-white);
+  color: var(--color-navy);
+  border-left: 6px solid var(--color-orange);
+  border-radius: var(--radius);
+  font-weight: 700;
+}
+
+.hero-content {
+  max-width: 38rem;
+}
+
+.hero-title {
+  font-size: clamp(2.6rem, 6.2vw, 4.6rem);
+  letter-spacing: -0.03em;
+  line-height: 1.08;
+  margin-bottom: 1.5rem;
+}
+
+.hero-text {
+  font-size: 1.3rem;
+  margin-bottom: 2rem;
+}
+
+/* Key numbers under the hero */
+.highlights {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem;
+}
+
+.highlight-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.highlight-figure {
+  display: block;
+  font-size: 2.6rem;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--color-orange);
+}
+
+.highlight-label {
+  display: block;
+  margin-top: 0.3rem;
+}
+
+/* Services overview under the hero, on a light gray band */
+.home-services {
+  background: var(--color-gray-surface);
+}
+
+.home-services-inner {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+}
+
+.home-services-title {
+  max-width: 44rem;
+  font-size: clamp(1.9rem, 4vw, 2.8rem);
+  letter-spacing: -0.02em;
+  margin-bottom: 2.5rem;
+}
+
+.home-service-list {
+  list-style: none;
+  margin: 0 0 2.5rem;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+/* Each service is a white card of the same height */
+.home-service-list li {
+  padding: 1.75rem;
+  background: var(--color-white);
+  border: 1px solid var(--color-gray-line);
+  border-radius: var(--radius);
+}
+
+.home-service-list h3 {
+  min-height: 2.4em; /* reserves two lines so the descriptions start aligned */
+  margin: 0 0 0.75rem;
+  font-size: 1.3rem;
+  line-height: 1.2;
+  color: var(--color-orange-dark);
+}
+
+/* ---------- 7. Inner pages ---------- */
+.page-title {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
+}
+
+.page-intro {
+  font-size: 1.15rem;
+  color: var(--color-gray-text);
+  margin: 1rem 0 2.5rem;
+}
+
+.page h2 {
+  font-size: 1.35rem;
+  margin-bottom: 0.5rem;
+}
+
+/* About */
+.about-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 18rem) minmax(0, 1fr);
+  gap: 2.5rem;
+  align-items: start;
+  margin-top: 2.5rem;
+}
+
+.about-photo {
+  width: 100%;
+  border-radius: var(--radius);
+  border-bottom: 8px solid var(--color-orange);
+}
+
+.about-text {
+  max-width: 38rem;
+}
+
+.about-text h2 {
+  font-size: 1.7rem;
+  margin-bottom: 1rem;
+}
+
+.about-text p {
+  margin-bottom: 1rem;
+}
+
+.about-text .button {
+  margin-top: 0.5rem;
+}
+
+/* Projects */
+.project-list {
+  display: grid;
+  gap: 2rem;
+}
+
+.project {
+  display: grid;
+  grid-template-columns: minmax(0, 22rem) minmax(0, 1fr);
+  gap: 2rem;
+  align-items: center;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--color-gray-line);
+}
+
+.project:last-child {
+  border-bottom: none;
+}
+
+.project-image {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  object-position: left top; /* keeps the start of each screenshot visible */
+  border-radius: var(--radius);
+}
+
+.project-body p {
+  margin-top: 0.6rem;
+  max-width: 36rem;
+}
+
+.project-body .project-details {
+  margin-top: 0;
+  font-weight: 700;
+  color: var(--color-gray-text);
+}
+
+/* Education timeline */
+.timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 1.75rem;
+  border-left: 3px solid var(--color-navy);
+}
+
+.timeline-item {
+  position: relative;
+  padding-bottom: 2.25rem;
+}
+
+/* Marker of each timeline entry */
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: calc(-1.75rem - 9.5px);
+  top: 0.35rem;
+  width: 16px;
+  height: 16px;
+  background: var(--color-orange);
+  border: 3px solid var(--color-navy);
+  border-radius: 50%;
+}
+
+.timeline-dates {
+  font-weight: 700;
+  color: var(--color-gray-text);
+  margin-bottom: 0.25rem;
+}
+
+.timeline-details {
+  margin-top: 0.5rem;
+  max-width: 40rem;
+}
+
+/* Services */
+.service-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2rem;
+}
+
+.service-image {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border-radius: var(--radius);
+  margin-bottom: 1rem;
+}
+
+.service-actions {
+  margin-top: 2.5rem;
+}
+
+/* Contact */
+.contact-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 20rem) minmax(0, 1fr);
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.contact-panel {
+  padding: 1.75rem;
+  background: var(--color-charcoal);
+  color: var(--color-white);
+  border-radius: var(--radius);
+}
+
+.contact-panel a {
+  color: var(--color-white);
+}
+
+.contact-panel dl {
+  margin: 1rem 0 0;
+}
+
+.contact-panel dt {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--color-orange);
+}
+
+.contact-panel dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.contact-form {
+  display: grid;
+  gap: 1.25rem;
+  justify-items: start;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+  width: 100%;
+}
+
+.contact-form label {
+  display: grid;
+  gap: 0.35rem;
+  width: 100%;
+  font-weight: 700;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.7rem 0.8rem;
+  border: 1.5px solid var(--color-gray-line);
+  border-radius: var(--radius);
+  background: var(--color-white);
+  color: var(--color-navy);
+  font: inherit;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: var(--color-navy);
+}
+
+/* ---------- 8. Footer ---------- */
+.footer {
+  padding: 1.5rem;
+  background: var(--color-charcoal-deep);
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+  text-align: center;
+  font-size: 0.95rem;
+  color: var(--color-white);
+}
+
+/* ---------- 9. Small screens (phones) ---------- */
+@media (max-width: 720px) {
+  .hero-inner {
+    padding: 3.5rem 1.5rem;
+  }
+
+  /* On phones the dark layer covers the whole photo */
+  .hero {
+    background:
+      linear-gradient(rgba(4, 8, 40, 0.78), rgba(4, 8, 40, 0.78)),
+      url('./assets/hero-background.jpg') 80% center / cover no-repeat;
+  }
+
+  .home-services-inner {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .logo {
+    height: 2.6rem;
+  }
+
+  .home-service-list,
+  .about-grid,
+  .project,
+  .contact-grid,
+  .service-list,
+  .form-row,
+  .highlight-list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .about-photo {
+    max-width: 16rem;
+  }
+}
+
+/* Error message shown when the backend cannot save the contact */
+.form-error {
+  margin: 0;
+  color: #b42318;
+  font-size: 0.95rem;
+}
