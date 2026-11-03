@@ -17,7 +17,7 @@ const create = async (req, res) => {
 // GET /api/contacts -> get all contacts
 const list = async (req, res) => {
   try {
-    const contacts = await Contact.find().select('firstname lastname email')
+    const contacts = await Contact.find().select('firstname lastname email contactNumber message created').sort({ created: -1 })
     res.json(contacts)
   } catch (err) {
     return res.status(400).json({ error: errorHandler.getErrorMessage(err) })

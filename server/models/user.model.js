@@ -16,6 +16,13 @@ const UserSchema = new mongoose.Schema({
     match: [/.+@.+\..+/, 'Please fill a valid email address'],
     required: 'Email is required',
   },
+  // Role of the account (Assignment 3): "admin" can create, update and delete,
+  // "user" can only view/read. Every account created with Sign Up is a "user".
+  role: {
+    type: String,
+    enum: ['user', 'admin'],
+    default: 'user',
+  },
   created: {
     type: Date,
     default: Date.now,

@@ -137,6 +137,19 @@ img {
   font-weight: 700;
 }
 
+/* Account area of the navbar (Assignment 3) */
+.navbar-account {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.navbar-user {
+  font-size: 0.95rem;
+  color: var(--color-gray-text);
+}
+
 /* ---------- 5. Buttons ---------- */
 .button {
   display: inline-block;
@@ -518,6 +531,26 @@ img {
 .contact-form input:focus,
 .contact-form textarea:focus {
   border-color: var(--color-navy);
+}
+
+/* Narrower pages for the forms (Assignment 3) */
+.page-narrow {
+  max-width: 30rem;
+}
+
+.page-medium {
+  max-width: 48rem;
+}
+
+/* Projects added from the form may have no image: the text uses the whole row */
+.project-no-image {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+/* Name and email saved with each project or qualification */
+.record-owner {
+  font-size: 0.9rem;
+  color: var(--color-gray-text);
 }
 
 /* ---------- 8. Footer ---------- */

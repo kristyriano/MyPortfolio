@@ -1,6 +1,7 @@
 // User routes: /api/users
-// Reading, updating and deleting one user are PROTECTED routes:
-// they need a valid JWT token and the token must belong to that same user.
+// Anyone can sign up (POST). Reading, updating and deleting one user are PROTECTED routes:
+// they need a valid JWT token and the token must belong to that same user (or to the admin).
+// Assignment 3: only the admin can list all users or delete all users.
 import express from 'express'
 import userCtrl from '../controllers/user.controller.js'
 import authCtrl from '../controllers/auth.controller.js'
@@ -9,9 +10,9 @@ const router = express.Router()
 
 router
   .route('/api/users')
-  .get(userCtrl.list) // get all users
+  .get(authCtrl.requireSignin, authCtrl.isAdmin, userCtrl.list) // get all users (admin only)
   .post(userCtrl.create) // add new user (sign up)
-  .delete(authCtrl.requireSignin, userCtrl.removeAll) // remove all users (signed-in only)
+  .delete(authCtrl.requireSignin, authCtrl.isAdmin, userCtrl.removeAll) // remove all users (admin only)
 
 router
   .route('/api/users/:userId')

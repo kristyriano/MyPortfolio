@@ -12,8 +12,10 @@ const hidePassword = (user) => {
 }
 
 // POST /api/users -> add a new user (sign up)
+// Sign up never accepts a role: every new account is a "user" (the admin is hardcoded in MongoDB)
 const create = async (req, res) => {
-  const user = new User(req.body)
+  const { role, ...newUserData } = req.body
+  const user = new User(newUserData)
   try {
     await user.save()
     return res.status(200).json({ message: 'Successfully signed up!' })
@@ -25,7 +27,7 @@ const create = async (req, res) => {
 // GET /api/users -> get all users
 const list = async (req, res) => {
   try {
-    const users = await User.find().select('name email updated created')
+    const users = await User.find().select('name email role updated created')
     res.json(users)
   } catch (err) {
     return res.status(400).json({ error: errorHandler.getErrorMessage(err) })
@@ -53,7 +55,10 @@ const read = (req, res) => {
 const update = async (req, res) => {
   try {
     let user = req.profile
-    user = extend(user, req.body)
+    // Only the admin can change a role; a user cannot make their own account admin
+    const changes = { ...req.body }
+    if (!req.auth || req.auth.role !== 'admin') delete changes.role
+    user = extend(user, changes)
     user.updated = Date.now()
     await user.save()
     res.json(hidePassword(user))
@@ -73,10 +78,10 @@ const remove = async (req, res) => {
   }
 }
 
-// DELETE /api/users -> remove all users
+// DELETE /api/users -> remove all users (the admin account is kept)
 const removeAll = async (req, res) => {
   try {
-    const result = await User.deleteMany({})
+    const result = await User.deleteMany({ role: { $ne: 'admin' } })
     res.json({ message: `${result.deletedCount} user(s) deleted successfully!` })
   } catch (err) {
     return res.status(400).json({ error: errorHandler.getErrorMessage(err) })

@@ -1,7 +1,7 @@
 {
   "name": "myportfolio",
   "version": "1.0.0",
-  "description": "COMP229 Assignment 2 - Portfolio backend: Node.js, Express REST APIs and MongoDB",
+  "description": "COMP229 Assignment 3 - Full stack portfolio: React frontend, Express REST APIs, MongoDB, JWT authentication and user roles",
   "type": "module",
   "main": "server.js",
   "author": "Kristy Riano",
@@ -9,7 +9,9 @@
   "scripts": {
     "start": "node server.js",
     "server": "nodemon server.js",
-    "dev": "cd client && npm run dev"
+    "dev": "cd client && npm run dev",
+    "create-admin": "node server/seed/createAdmin.js",
+    "seed-portfolio": "node server/seed/seedPortfolio.js"
   },
   "dependencies": {
     "compression": "^1.8.1",

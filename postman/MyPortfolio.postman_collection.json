@@ -1,6 +1,6 @@
 {
   "info": {
-    "name": "MyPortfolio API – Kristy Riano",
+    "name": "MyPortfolio API – Kristy Riano (Assignment 3)",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "item": [
@@ -63,10 +63,15 @@
           }
         },
         {
-          "name": "GET all contacts",
+          "name": "GET all contacts (admin token)",
           "request": {
             "method": "GET",
-            "header": [],
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{adminToken}}"
+              }
+            ],
             "url": {
               "raw": "{{baseUrl}}/api/contacts",
               "host": [
@@ -80,10 +85,15 @@
           }
         },
         {
-          "name": "GET contact by id",
+          "name": "GET contact by id (admin token)",
           "request": {
             "method": "GET",
-            "header": [],
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{adminToken}}"
+              }
+            ],
             "url": {
               "raw": "{{baseUrl}}/api/contacts/{{contactId}}",
               "host": [
@@ -98,13 +108,17 @@
           }
         },
         {
-          "name": "PUT update contact by id",
+          "name": "PUT update contact by id (admin token)",
           "request": {
             "method": "PUT",
             "header": [
               {
                 "key": "Content-Type",
                 "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{adminToken}}"
               }
             ],
             "url": {
@@ -125,10 +139,15 @@
           }
         },
         {
-          "name": "DELETE contact by id",
+          "name": "DELETE contact by id (admin token)",
           "request": {
             "method": "DELETE",
-            "header": [],
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{adminToken}}"
+              }
+            ],
             "url": {
               "raw": "{{baseUrl}}/api/contacts/{{contactId}}",
               "host": [
@@ -143,10 +162,15 @@
           }
         },
         {
-          "name": "DELETE all contacts",
+          "name": "DELETE all contacts (admin token)",
           "request": {
             "method": "DELETE",
-            "header": [],
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{adminToken}}"
+              }
+            ],
             "url": {
               "raw": "{{baseUrl}}/api/contacts",
               "host": [
@@ -165,7 +189,7 @@
       "name": "projects",
       "item": [
         {
-          "name": "POST add new project",
+          "name": "POST add new project (admin token)",
           "event": [
             {
               "listen": "test",
@@ -187,6 +211,10 @@
               {
                 "key": "Content-Type",
                 "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{adminToken}}"
               }
             ],
             "url": {
@@ -241,13 +269,17 @@
           }
         },
         {
-          "name": "PUT update project by id",
+          "name": "PUT update project by id (admin token)",
           "request": {
             "method": "PUT",
             "header": [
               {
                 "key": "Content-Type",
                 "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{adminToken}}"
               }
             ],
             "url": {
@@ -268,10 +300,15 @@
           }
         },
         {
-          "name": "DELETE project by id",
+          "name": "DELETE project by id (admin token)",
           "request": {
             "method": "DELETE",
-            "header": [],
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{adminToken}}"
+              }
+            ],
             "url": {
               "raw": "{{baseUrl}}/api/projects/{{projectId}}",
               "host": [
@@ -286,10 +323,15 @@
           }
         },
         {
-          "name": "DELETE all projects",
+          "name": "DELETE all projects (admin token)",
           "request": {
             "method": "DELETE",
-            "header": [],
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{adminToken}}"
+              }
+            ],
             "url": {
               "raw": "{{baseUrl}}/api/projects",
               "host": [
@@ -308,7 +350,7 @@
       "name": "qualifications",
       "item": [
         {
-          "name": "POST add new qualification",
+          "name": "POST add new qualification (admin token)",
           "event": [
             {
               "listen": "test",
@@ -330,6 +372,10 @@
               {
                 "key": "Content-Type",
                 "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{adminToken}}"
               }
             ],
             "url": {
@@ -384,13 +430,17 @@
           }
         },
         {
-          "name": "PUT update qualification by id",
+          "name": "PUT update qualification by id (admin token)",
           "request": {
             "method": "PUT",
             "header": [
               {
                 "key": "Content-Type",
                 "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{adminToken}}"
               }
             ],
             "url": {
@@ -411,10 +461,15 @@
           }
         },
         {
-          "name": "DELETE qualification by id",
+          "name": "DELETE qualification by id (admin token)",
           "request": {
             "method": "DELETE",
-            "header": [],
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{adminToken}}"
+              }
+            ],
             "url": {
               "raw": "{{baseUrl}}/api/qualifications/{{qualificationId}}",
               "host": [
@@ -429,10 +484,15 @@
           }
         },
         {
-          "name": "DELETE all qualifications",
+          "name": "DELETE all qualifications (admin token)",
           "request": {
             "method": "DELETE",
-            "header": [],
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{adminToken}}"
+              }
+            ],
             "url": {
               "raw": "{{baseUrl}}/api/qualifications",
               "host": [
@@ -477,10 +537,15 @@
           }
         },
         {
-          "name": "GET all users",
+          "name": "GET all users (admin token)",
           "request": {
             "method": "GET",
-            "header": [],
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{adminToken}}"
+              }
+            ],
             "url": {
               "raw": "{{baseUrl}}/api/users",
               "host": [
@@ -646,13 +711,13 @@
           }
         },
         {
-          "name": "DELETE all users (protected)",
+          "name": "DELETE all users (protected) (admin token)",
           "request": {
             "method": "DELETE",
             "header": [
               {
                 "key": "Authorization",
-                "value": "Bearer {{token}}"
+                "value": "Bearer {{adminToken}}"
               }
             ],
             "url": {
@@ -663,6 +728,299 @@
               "path": [
                 "api",
                 "users"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Assignment 3 – roles (admin and user)",
+      "item": [
+        {
+          "name": "POST sign in as ADMIN (saves adminToken)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/auth/signin",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "auth",
+                "signin"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"admin@portfolio.com\",\n  \"password\": \"Admin123!\"\n}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "{",
+                  "  const data = pm.response.json();",
+                  "  if (data.token) { pm.collectionVariables.set('adminToken', data.token); }",
+                  "}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "POST sign up a normal user (role is always \"user\")",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/users",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "users"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Maria Lopez\",\n  \"email\": \"maria@test.com\",\n  \"password\": \"maria123\",\n  \"role\": \"admin\"\n}"
+            }
+          }
+        },
+        {
+          "name": "POST sign in as USER (saves userToken)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/auth/signin",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "auth",
+                "signin"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"maria@test.com\",\n  \"password\": \"maria123\"\n}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "{",
+                  "  const data = pm.response.json();",
+                  "  if (data.token) { pm.collectionVariables.set('userToken', data.token); }",
+                  "}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "GET all projects as USER – view/read allowed (200)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{userToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/projects",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "projects"
+              ]
+            }
+          }
+        },
+        {
+          "name": "POST project as USER – not allowed (403)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{userToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/projects",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "projects"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Test project from Postman\",\n  \"firstname\": \"Kristy\",\n  \"lastname\": \"Riano\",\n  \"email\": \"nataripa@gmail.com\",\n  \"completion\": \"2026-11-20\",\n  \"description\": \"Created to test the admin role.\"\n}"
+            }
+          }
+        },
+        {
+          "name": "POST project as ADMIN – allowed (200)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{adminToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/projects",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "projects"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Test project from Postman\",\n  \"firstname\": \"Kristy\",\n  \"lastname\": \"Riano\",\n  \"email\": \"nataripa@gmail.com\",\n  \"completion\": \"2026-11-20\",\n  \"description\": \"Created to test the admin role.\"\n}"
+            }
+          }
+        },
+        {
+          "name": "GET all contacts without token – protected (401)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/contacts",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "contacts"
+              ]
+            }
+          }
+        },
+        {
+          "name": "GET all contacts as USER – view allowed (200)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{userToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/contacts",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "contacts"
+              ]
+            }
+          }
+        },
+        {
+          "name": "GET all users as USER – admin only (403)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{userToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/users",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "users"
+              ]
+            }
+          }
+        },
+        {
+          "name": "GET all users as ADMIN (200)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{adminToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/users",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "users"
+              ]
+            }
+          }
+        },
+        {
+          "name": "GET sign out",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/auth/signout",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "auth",
+                "signout"
               ]
             }
           }
@@ -693,6 +1051,14 @@
     },
     {
       "key": "token",
+      "value": ""
+    },
+    {
+      "key": "adminToken",
+      "value": ""
+    },
+    {
+      "key": "userToken",
       "value": ""
     }
   ]
